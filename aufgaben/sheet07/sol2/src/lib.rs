@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 mod tests;
 
 pub fn factorial(n: i64) -> i64 {
@@ -33,16 +31,14 @@ pub fn is_palindrome(word: &str) -> bool {
     word == word.chars().rev().collect::<String>()
 }
 
-pub fn used_chars_count(chars: &[&str]) -> usize {
-    let mut counter = HashSet::new();
-    let chars: Vec<_> = chars.iter().flat_map(|c| {
-        c.chars()
-            .filter(|c| c.is_alphabetic() )
-    }).collect();
-    for c in chars.clone() {
-        if !counter.contains(&c) { counter.insert(c); }
-    };
-    counter.len()
+pub fn used_chars_count(words: &[&str]) -> usize {
+    use std::collections::HashSet;
+
+    words.iter()
+        .flat_map(|w| w.chars())
+        .filter(|c| !c.is_whitespace())
+        .collect::<HashSet<_>>()
+        .len()
 }
 
 fn greatest_subsequencial_sum(arr: &[i64]) -> &[i64] {
