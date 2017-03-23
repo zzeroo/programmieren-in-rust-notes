@@ -1,10 +1,10 @@
 use std::env;
 use std::fs::File;
-use std::io::{Error, ErrorKind, BufReader};
+use std::io::{Error, ErrorKind};
 use std::io::prelude::*;
 
 
-const USAGE: &'static str ="
+const USAGE: &'static str = "
 Eigene `cp` Implementierung in Rust. ACHTUNG unvollständig!\n
 Usage:
 \tmycp    <quelle>    <ziel>
