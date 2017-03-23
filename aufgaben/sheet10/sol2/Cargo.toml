@@ -1,0 +1,14 @@
+[package]
+name = "flip"
+version = "0.1.0"
+authors = ["Stefan Müller <s.mueller@it.kls-glt.de>"]
+
+[dependencies.clap]
+version = "~2.19.0"
+default-features = false
+
+# Cherry-pick the features you'd like to use
+features = [ "suggestions", "color" ]
+
+[dependencies]
+rand = "*"
